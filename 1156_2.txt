@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cstring>
+#include<string>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+double arctanx(double x);
+int main()
+{
+	double a=6*arctanx(1.0/sqrt(3));
+	printf("%.10lf",a);
+	return 0;
+}
+double arctanx(double x)
+{
+	bool a=1,c=1;
+	double j=1.0,b,y=0.0;
+	int i=1,z=0,m;
+	while (c)
+	{
+		j=1.0;
+		for (m=1;m<=i;m++) 
+		{
+			j*=x;
+		}
+		if (a) y+=j/i;
+		else y-=j/i;
+		a=!a;
+		i+=2;
+		if (j/i<1e-6) c=0;
+	}
+	return y;
+}
